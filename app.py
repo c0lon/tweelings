@@ -1,3 +1,10 @@
+"""
+TODO
+
+handle everything that has to do with all tweets in one pass
+make sure mostRetweeted tweet is not itself a retweet
+"""
+
 import json
 import tweepy
 from creds import Creds
@@ -25,6 +32,17 @@ def getUsers():
     f.close()
     return users
 
+# read in words to ignore when calculating most used words from file
+def getStopWords():
+    stopWords = ['']
+    with open("stop_words.txt", "r") as f:
+        word = f.readline().strip()
+        while word:
+            stopWords.append(word)
+            word = f.readline().strip()
+
+    return stopWords
+
 # get as many tweets from a user as possible
 # twitter API only allows 200 per request, so make multiple
 # max 3200 tweets can be retrieved
@@ -40,16 +58,32 @@ def getAllTweets(id):
 
     return tweets
 
-# read in words to ignore when calculating most used words from file
-def getStopWords():
-    stopWords = ['']
-    with open("stop_words.txt", "r") as f:
-        word = f.readline().strip()
-        while word:
-            stopWords.append(word)
-            word = f.readline().strip()
+# find a user's most favorited tweet
+# return id, count, and tweet text
+def findMostFavorited(tweets):
+    mostFavorited = tweets[0]
 
-    return stopWords
+    for tweet in tweets:
+        if tweet.favorite_count > mostFavorited.favorite_count:
+            mostFavorited = tweet
+
+    return {'id' : mostFavorited.id,
+            'text' : mostFavorited.text,
+            'favorites' : mostFavorited.favorite_count}
+
+# find a user's most retweeted tweet
+# return id, count, and tweet text
+def findMostRetweeted(tweets):
+    mostRetweeted = tweets[0]
+
+    for tweet in tweets:
+        if tweet.retweet_count > mostRetweeted.retweet_count:
+            if not tweet.retweet:
+                mostRetweeted = tweet
+
+    return {'id' : mostRetweeted.id,
+            'text' : mostRetweeted.text,
+            'retweets' : mostRetweeted.retweet_count}
 
 # find the time of day the user is most active
 def findMostActiveTime(tweets):
@@ -57,7 +91,23 @@ def findMostActiveTime(tweets):
 
 # find the app the user prefers to tweet from
 def findPreferredApp(tweets):
-    return ""
+    sources = {}
+
+    for tweet in tweets:
+        newSource = tweet.source
+        if newSource not in sources:
+            sources[newSource] = 1
+        else:
+            sources[newSource] += 1
+
+    preferredSource = ""
+    most = 0
+    for source, freq in sources.iteritems():
+        if freq > most:
+            most = freq
+            preferredSource = source
+
+    return preferredSource
 
 # find the ratio of tweets with links to all tweets
 def findLinksRatio(tweets):
@@ -103,6 +153,9 @@ def analyzeUser(user, stopWords):
 
     tweets = getAllTweets(user.id)
 
+    userJSON['mostFavorited'] = findMostFavorited(tweets)
+    userJSON['mostRetweeted'] = findMostRetweeted(tweets)
+
     analysisInfo = {}
     analysisInfo['timeMostActive'] = findMostActiveTime(tweets)
     analysisInfo['preferredApp'] = findPreferredApp(tweets)
@@ -135,7 +188,7 @@ if __name__ == "__main__":
 
     stopWords = getStopWords()
     if DEBUG:
-        analyzeUser(getUsers()[2], stopWords)
+        analyzeUser(getUsers()[0], stopWords)
     else:
         for user in getUsers():
             analyzeUser(user, stopWords)
