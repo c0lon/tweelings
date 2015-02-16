@@ -10,27 +10,15 @@ def login():
 
     return tweepy.API(auth)
 
-def getUsers():
-    f = open("users.txt", "r")
-
-    users = []
-    id = f.readline().strip()
-    while id:
-        users.append(api.get_user(id))
-        id = f.readline().strip()
-
-    f.close()
-    return users
-
 api = login()
-users = getUsers()
 
-for user in users:
-    print user.id
-    print user.name
-    print user.screen_name
-    print ""
+tweets = []
+new_tweets = api.user_timeline("@c0lon", count=200)
+tweets.extend(new_tweets)
+oldest = tweets[-1].id - 1
+while len(new_tweets) > 0:
+    new_tweets = api.user_timeline("@c0lon", max_id=oldest, count=200)
+    tweets.extend(new_tweets)
+    oldest = tweets[-1].id - 1
 
-public_tweets = api.home_timeline()
-for tweet in public_tweets:
-   print tweet.text
+print len(tweets)
