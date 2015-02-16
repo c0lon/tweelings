@@ -9,6 +9,7 @@ import json
 import tweepy
 from creds import Creds
 from user import User
+from sys import argv
 
 # login to the twitter API using the Creds class
 def login():
@@ -57,33 +58,6 @@ def getAllTweets(id):
         oldest = tweets[-1].id - 1
 
     return tweets
-
-# find a user's most favorited tweet
-# return id, count, and tweet text
-def findMostFavorited(tweets):
-    mostFavorited = tweets[0]
-
-    for tweet in tweets:
-        if tweet.favorite_count > mostFavorited.favorite_count:
-            mostFavorited = tweet
-
-    return {'id' : mostFavorited.id,
-            'text' : mostFavorited.text,
-            'favorites' : mostFavorited.favorite_count}
-
-# find a user's most retweeted tweet
-# return id, count, and tweet text
-def findMostRetweeted(tweets):
-    mostRetweeted = tweets[0]
-
-    for tweet in tweets:
-        if tweet.retweet_count > mostRetweeted.retweet_count:
-            if not tweet.retweet:
-                mostRetweeted = tweet
-
-    return {'id' : mostRetweeted.id,
-            'text' : mostRetweeted.text,
-            'retweets' : mostRetweeted.retweet_count}
 
 # find the time of day the user is most active
 def findMostActiveTime(tweets):
@@ -143,52 +117,61 @@ def findHappiness(tweets):
 #   ratio of tweets with links to total tweets
 #   user's top 10 most used words
 def analyzeUser(user, stopWords):
-    userJSON = {'id' : user.id}
+    tweets = getAllTweets(user.id)
+    userJSON = {}
 
-    userInfo = {'name' : user.name,
+    userInfo = {'id' : user.id,
+                'name' : user.name,
                 'screen_name' : user.screen_name,
                 'friends' : user.friends_count,
-                'followers' : user.followers_count}
+                'followers' : user.followers_count,
+                'tweet_count' : len(tweets)}
     userJSON['user'] = userInfo
 
-    tweets = getAllTweets(user.id)
-
-    userJSON['mostFavorited'] = findMostFavorited(tweets)
-    userJSON['mostRetweeted'] = findMostRetweeted(tweets)
-
     analysisInfo = {}
-    analysisInfo['timeMostActive'] = findMostActiveTime(tweets)
-    analysisInfo['preferredApp'] = findPreferredApp(tweets)
-    analysisInfo['linksRatio'] = findLinksRatio(tweets)
-    analysisInfo['topTenWords'] = findMostUsedWords(tweets, stopWords)
-    analysisInfo['happiness'] = findHappiness(tweets)
+    mostFavorited = tweets[0]
+    mostRetweeted = tweets[0]
+
+    for tweet in tweets:
+        # find most favorited tweet
+        if tweet.favorite_count > mostFavorited.favorite_count:
+            mostFavorited = tweet
+
+        # find most retweeted tweet
+        if tweet.retweet_count > mostRetweeted.retweet_count:
+            mostRetweeted = tweet
+
+        # find the time of day the user is most active
+
+        # find the app the user prefers to tweet from
+
+        # find the ratio of tweets with links to all tweets
+
+        # find the user's most used words
+
+        # find the user's happiness on a scale of -1 to 1
+        # -1 = very unhappy, 1 = very happy
+
+    mostFavoritedInfo = {'id' : mostFavorited.id,
+                         'text' : mostFavorited.text,
+                         'favorite_count' : mostFavorited.favorite_count}
+    analysisInfo['mostFavorited'] = mostFavoritedInfo
+
+    mostRetweetedInfo = {'id' : mostRetweeted.id,
+                         'text' : mostRetweeted.text,
+                         'retweet_count' : mostRetweeted.retweet_count}
+    analysisInfo['mostRetweeted'] = mostRetweetedInfo
+
     userJSON['analysis'] = analysisInfo
 
     print json.dumps(userJSON, indent=4)
 
 # main
 if __name__ == "__main__":
-    DEBUG = True
-    CLASSES = False
-
-    api = login()
-
-    if CLASSES:
-        with open("classes.txt", "w+") as f:
-            user = api.get_user("@VanessaHudgens")
-            tweet = api.user_timeline(user.id, count=1)[0]
-            
-            f.write("User:\n")
-            for attr in dir(user):
-                f.write("\t" + attr + "\n")
-
-            f.write("\nTweet:\n")
-            for attr in dir(tweet):
-                f.write("\t" + attr + "\n")
-
     stopWords = getStopWords()
-    if DEBUG:
-        analyzeUser(getUsers()[0], stopWords)
+    
+    if '-d' in argv:
+        analyzeUser(getUsers()[2], stopWords)
     else:
         for user in getUsers():
             analyzeUser(user, stopWords)
