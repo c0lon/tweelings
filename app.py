@@ -111,11 +111,13 @@ def findHappiness(tweets):
     return 0.0
 
 # get information about a user, such as
-#   time of day user is most active
-#   app user prefers to send tweets from
+#   total tweet count
+#   time user is most active
+#   preferred app
 #   friend/follower count
-#   ratio of tweets with links to total tweets
-#   user's top 10 most used words
+#   link ratio
+#   most used words
+#   most favorited/retweeted tweets
 def analyzeUser(user, stopWords):
     tweets = getAllTweets(user.id)
     userJSON = {}
@@ -128,9 +130,18 @@ def analyzeUser(user, stopWords):
                 'tweet_count' : len(tweets)}
     userJSON['user'] = userInfo
 
+    # dict to hold all analysis info
     analysisInfo = {}
+
+    # starting values
     mostFavorited = tweets[0]
     mostRetweeted = tweets[0]
+
+    # dict of sources/frequencies
+    sources = {}
+
+    # dict of words/frequencies
+    wordFreqs = {}
 
     for tweet in tweets:
         # find most favorited tweet
@@ -143,24 +154,52 @@ def analyzeUser(user, stopWords):
 
         # find the time of day the user is most active
 
+
         # find the app the user prefers to tweet from
+        newSource = tweet.source
+        if newSource not in sources:
+            sources[newSource] = 1
+        else:
+            sources[newSource] += 1
 
         # find the ratio of tweets with links to all tweets
+        
 
         # find the user's most used words
+        words = tweet.text.strip().split(" ")
+        for word in words:
+            lower = word.lower()
+            if lower not in stopWords:
+                if lower not in wordFreqs:
+                    wordFreqs[lower] = 1
+                else:
+                    wordFreqs[lower] += 1
 
         # find the user's happiness on a scale of -1 to 1
         # -1 = very unhappy, 1 = very happy
 
+    # add mostFavorited to JSON
     mostFavoritedInfo = {'id' : mostFavorited.id,
                          'text' : mostFavorited.text,
                          'favorite_count' : mostFavorited.favorite_count}
     analysisInfo['mostFavorited'] = mostFavoritedInfo
 
+    # add mostRetweeted to JSON
     mostRetweetedInfo = {'id' : mostRetweeted.id,
                          'text' : mostRetweeted.text,
                          'retweet_count' : mostRetweeted.retweet_count}
     analysisInfo['mostRetweeted'] = mostRetweetedInfo
+
+    # analyze sources list to find preferred source
+    preferredSource, most = "", 0
+    for source, freq in sources.iteritems():
+        if freq > most:
+            preferredSource, most = source, freq
+    analysisInfo['preferredApp'] = preferredSource
+
+    # get the top 10 most used words
+    sortedWordFreqs = sorted(wordFreqs, key=wordFreqs.get, reverse=True)
+    analysisInfo['mostUsedWords'] = sortedWordFreqs[:10]
 
     userJSON['analysis'] = analysisInfo
 
@@ -169,7 +208,9 @@ def analyzeUser(user, stopWords):
 # main
 if __name__ == "__main__":
     stopWords = getStopWords()
-    
+
+    api = login()
+
     if '-d' in argv:
         analyzeUser(getUsers()[2], stopWords)
     else:
