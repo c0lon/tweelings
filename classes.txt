@@ -119,6 +119,7 @@ Tweet:
 	parse
 	parse_list
 	place
+	possibly_sensitive
 	retweet
 	retweet_count
 	retweeted
@@ -128,3 +129,5 @@ Tweet:
 	text
 	truncated
 	user
+
+Tweet.created_at: 2015-02-19 18:17:11

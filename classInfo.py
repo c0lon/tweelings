@@ -25,3 +25,5 @@ if __name__ == '__main__':
         f.write("\nTweet:\n")
         for attr in dir(tweet):
             f.write("\t" + attr + "\n")
+
+        f.write("\nTweet.created_at: %s" % tweet.created_at)
