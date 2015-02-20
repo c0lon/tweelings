@@ -19,7 +19,7 @@ class Tweelings(object):
         self.setStopWords()
         self.setHappyWords()
 
-        self.outputFile = ""
+        self.outputFile = None
 
     #
     # login to the twitter API using the Creds class
