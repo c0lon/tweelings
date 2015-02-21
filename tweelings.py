@@ -115,7 +115,7 @@ class Tweelings(object):
             except KeyError:
                 continue
 
-        return self.map(happiness / freqTotal)
+        return self._map(happiness / freqTotal)
 
     #
     # get information about a user, such as
@@ -128,7 +128,10 @@ class Tweelings(object):
     #   most favorited/retweeted tweets
     def _analyzeUser(self, id):
         userJSON = {
-            'error' : False
+            'status' : {
+                'error' : False,
+                'message' : ''
+            }
         }
 
         try:
@@ -310,20 +313,23 @@ class Tweelings(object):
             userJSON['analysis'] = analysisInfo
 
         except TweepError as te:
-            userJSON['error'] = True
+            userJSON['status'] = {
+                'error' : True,
+                'message' : te.message
+            }
 
         finally:
             return userJSON
     #
     # wrapper for analyze user
     def analyzeUser(self, id):
-        result = self._analyzeUser(id)
+        result = self._byteify(self._analyzeUser(id))
 
         if self.outputFile:
             with open(self.outputFile, 'w+') as outfile:
-                json.dump(result, outfile, indent=4, sort_keys=True)
+                json.dump(result, outfile, indent=4, sort_keys=True, ensure_ascii=False)
         else:
-            print json.dumps(result, indent=4, sort_keys=True)
+            print json.dumps(result, indent=4, sort_keys=True, ensure_ascii=False)
 
     #
     # analyze all users in the specified file
@@ -336,17 +342,13 @@ class Tweelings(object):
             analyses['@'+user.screen_name] = analysis
             self.userAnalyses.append(analysis)
 
+        analyses = self._byteify(analyses)
+
         if self.outputFile:
             with open(self.outputFile, 'w+') as outfile:
                 json.dump(analyses, outfile, indent=4, sort_keys=True)
         else:
             print json.dumps(analyses, indent=4, sort_keys=True)
-
-    #
-    # utility function to map happiness levels
-    # maps a value from (1, 9) to (-1, 1)
-    def map(self, x, in_min=1, in_max=9, out_min=-1, out_max=1):
-        return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
 
     def showHelp(self):
         print   """
@@ -377,6 +379,25 @@ class Tweelings(object):
                         tweelings outputs to stdout.
                         Must come before -u or -U
                 """
+
+    #
+    # utility function to map happiness levels
+    # maps a value from (1, 9) to (-1, 1)
+    def _map(self, x, in_min=1, in_max=9, out_min=-1, out_max=1):
+        return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
+
+    #
+    # utility function that encodes objects recursively to unicode
+    # this is to avoid the escape sequences that would normally be produced
+    def _byteify(self, input):
+        if isinstance(input, dict):
+            return {self._byteify(key):self._byteify(value) for key,value in input.iteritems()}
+        elif isinstance(input, list):
+            return [self._byteify(element) for element in input]
+        elif isinstance(input,  unicode):
+            return input.encode('utf-8')
+        else:
+            return input
 
 #
 # main
