@@ -346,9 +346,9 @@ class Tweelings(object):
 
         if self.outputFile:
             with open(self.outputFile, 'w+') as outfile:
-                json.dump(analyses, outfile, indent=4, sort_keys=True)
+                json.dump(analyses, outfile, indent=4, sort_keys=True, ensure_ascii=False)
         else:
-            print json.dumps(analyses, indent=4, sort_keys=True)
+            print json.dumps(analyses, indent=4, sort_keys=True, ensure_ascii=False)
 
     def showHelp(self):
         print   """
