@@ -10,6 +10,9 @@ I apologize for the stupid name
    to analyze a list of users from a file:
       `tweelings [-OPTION] [PATHNAME] -U <USERFILE>`
 
+   to show the help menu:
+      `tweelings`
+
    options:
 
       note: all options must come before the -u/-U flags and their associated targets.
