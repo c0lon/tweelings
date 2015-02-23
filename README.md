@@ -4,6 +4,27 @@ an app that analyzes how the Internet affects people's feelings, using the Twitt
 I apologize for the stupid name
 
 ###USAGE
+   to analyze a single user:
+      tweelings [-OPTION] [PATHNAME] -u <USERNAME>
+
+   to analyze a list of users from a file:
+      tweelings [-OPTION] [PATHNAME] -U <USERFILE>
+
+   options:
+      note: all options must come before the -u/-U flags and their associated targets.
+
+      -S <PATHNAME>     specify a file containing a list of stop words. Stop
+                  words are words that should be skipped in analysis,
+                  such as 'the' or 'I'. By default, tweelings uses the
+                  list of stop words in default/stopwords_default.txt.
+
+      -H <PATHNAME>     specify a JSON file containing a list of words and
+                  their related happiness values. By default, tweelings
+                  uses the list of words/happiness values in
+                  default/happywords_default.json.
+
+      -o <PATHNAME>     specify a file to write output to. By default,
+                  tweelings outputs to stdout.
 
 ###DESCRIPTION
 
