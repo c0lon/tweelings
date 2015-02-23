@@ -11,6 +11,8 @@ class Tweelings(object):
     # format string for dates
     DATEFORMAT = "%Y-%m-%d %H:%M:%S"
 
+    #
+    # initilize some default values
     def __init__(self):
         self.login()
         self.users = []
@@ -22,7 +24,7 @@ class Tweelings(object):
         self.outputFile = None
 
     #
-    # login to the twitter API using the Creds class
+    # login to the twitter API
     def login(self):
         c_key = "V7Nw0tT3dps5qlo7ICoWE1uI6"
         c_secret = "NHEVWdnpsagNvlpgWITdMCvmoXGSn6Hfkb2hYnfBXDH2laG9xd"
@@ -61,14 +63,11 @@ class Tweelings(object):
     def getUsers(self, usersFile):
         users = []
 
-        try:
-            with open(usersFile, 'r') as f:
+        with open(usersFile, 'r') as f:
+            id = f.readline().strip()
+            while id:
+                users.append(self.api.get_user(id))
                 id = f.readline().strip()
-                while id:
-                    users.append(self.api.get_user(id))
-                    id = f.readline().strip()
-        except IOError:
-            pass
 
         return users
 
@@ -94,11 +93,8 @@ class Tweelings(object):
     def setHappyWords(self, happyWordsFile='defaults/happywords_default.json'):
         happyWords = {}
 
-        try:
-            data = open(happyWordsFile)
-            happyWords = json.load(data)
-        except IOError:
-            pass
+        data = open(happyWordsFile)
+        happyWords = json.load(data)
 
         self.happyWords = happyWords
 
@@ -425,6 +421,8 @@ def main():
         except IndexError:
             print "incorrect syntax."
             tweelings.showHelp()
+        except IOError as ioe:
+            print "invalid file '%s'" % ioe.filename
 
 if __name__ == "__main__":
     main()
