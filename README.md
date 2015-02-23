@@ -97,7 +97,8 @@ class Tweelings:
       developed in [1], and further improved in [2].
 
    def _analyzeUser(id):
-      This is where the magic happens. The method creates a dict called userJSON,
+      This is where the magic happens.
+      The method creates a dict called userJSON,
       which will store all of the analysis information. Initially it contains a
       status element, which is used to record any errors that occurr during
       analysis. The rest of the method is surrounded in a try/except block which
