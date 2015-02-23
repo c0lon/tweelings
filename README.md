@@ -69,3 +69,6 @@ I started out writing this as a simple script, but I realized that I had a lot o
       Handles command line arguments and calls the correct functions. See USAGE.
 
 ###CITATIONS
+   1. Dodds PS, Danforth CM (2009) Measuring the happiness of large-scale written expression: Songs, blogs, and presidents. Journal of Happiness Studies.
+
+   2. Dodds PS, Harris KD, Kloumann IM, Bliss CA, Danforth CM (2011) Temporal Patterns of Happiness and Information in a Global Social Network: Hedonometrics and Twitter. PLoS ONE 6(12): e26752. doi:10.1371/journal.pone.0026752
