@@ -15,7 +15,7 @@ class Tweelings
 
    `def __init__()`
 
-      >When the object is first created, it logs in using the keys I created. It also initalizes some empty lists, users and userAnalyses, which will be used later. It then defines the default stop words and happy words, which can be found in the defaults directory. Finally, it sets the output file to None, which can be changed via a command line argument. 
+      > When the object is first created, it logs in using the keys I created. It also initalizes some empty lists, users and userAnalyses, which will be used later. It then defines the default stop words and happy words, which can be found in the defaults directory. Finally, it sets the output file to None, which can be changed via a command line argument. 
 
    def loing()
 
