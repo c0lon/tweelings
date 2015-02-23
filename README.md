@@ -1,9 +1,9 @@
 # tweelings
 an app that analyzes how the Internet affects people's feelings, using the Twitter API
 
-I apologize for the stupid name
+###I apologize for the stupid name
 
-DESCRIPTION
+##DESCRIPTION
 
 I knew that I wanted to use Python to accomplish the task, and after some research, I decided 
 on using the Tweepy library, which is essentially a set of bindings to the Twitter API.
