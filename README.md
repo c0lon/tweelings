@@ -5,12 +5,13 @@ I apologize for the stupid name
 
 ###USAGE
    to analyze a single user:
-      tweelings [-OPTION] [PATHNAME] -u <USERNAME>
+      `tweelings [-OPTION] [PATHNAME] -u <USERNAME>`
 
    to analyze a list of users from a file:
-      tweelings [-OPTION] [PATHNAME] -U <USERFILE>
+      `tweelings [-OPTION] [PATHNAME] -U <USERFILE>`
 
    options:
+
       note: all options must come before the -u/-U flags and their associated targets.
 
       -S <PATHNAME> 
