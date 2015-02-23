@@ -1,9 +1,9 @@
 # tweelings
 an app that analyzes how the Internet affects people's feelings, using the Twitter API
 
-###I apologize for the stupid name
+#####I apologize for the stupid name
 
-##DESCRIPTION
+###DESCRIPTION
 
 I knew that I wanted to use Python to accomplish the task, and after some research, I decided 
 on using the Tweepy library, which is essentially a set of bindings to the Twitter API.
@@ -11,9 +11,9 @@ The Tweepy docs can be found at http://tweepy.readthedocs.org/en/v3.2.0/
 
 I started out writing this as a simple script, but I realized that I had a lot of data to keep track of, so I decided to make a class called Tweelings. The Tweelings class will be described below.
 
-class Tweelings
+#####class Tweelings
 
-   def __init__()
+   `def __init__()`
 
       When the object is first created, it logs in using the keys I created. It also initalizes some empty lists, users and userAnalyses, which will be used later. It then defines the default stop words and happy words, which can be found in the defaults directory. Finally, it sets the output file to None, which can be changed via a command line argument. 
 
