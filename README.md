@@ -11,7 +11,7 @@ I apologize for the stupid name
       `tweelings [-OPTION] [PATHNAME] -U <USERFILE>`
 
    to show the help menu:
-      `tweelings`
+      `tweelings`+
 
    options:
 
@@ -69,14 +69,16 @@ class Tweelings:
       using the -U flag from the command line.
 
    def getTweets(id, max):
-      Gets as many tweets as possible from a user specified by id. The Twitter API
-      only allows 200 tweets to be retrieved at a time, so I found an algorithm that
-      retrieves all tweets in increments of 200. The algorithm works by getting the
-      first 200 tweets and remembering the id of the oldest one in a variable called
-      oldest. Tweets are retrieved using the tweepy.api.user_timeline() method,
-      which takes an argument max_id, which is just (oldest - 1). This occurs until
-      the user_timeline() method returns the empty list.
-      Credit for this algorithm goes to github user yanofsky. The script can be
+      Gets as many tweets as possible from a user specified by id. The max argument
+      specifies the max tweet id to retreive, which can be thought of as the oldest.
+      The default is 0, which just gets as many tweets as it possible. The Twitter
+      API only allows 200 tweets to be retrieved at a time, so I found an algorithm
+      that retrieves all tweets in increments of 200. The algorithm works by getting
+      the first 200 tweets and remembering the id of the oldest one in a variable
+      called oldest. Tweets are retrieved using the tweepy.api.user_timeline()
+      method, which takes an argument max_id, which is just (oldest - 1). This
+      occurs until the user_timeline() method returns the empty list.
+      Credit for the algorithm goes to github user yanofsky. The script can be
       found at https://gist.github.com/yanofsky/5436496
 
    def setHappyWords(happywordsFile):
@@ -95,14 +97,42 @@ class Tweelings:
       developed in [1], and further improved in [2].
 
    def _analyzeUser(id):
+      This is where the magic happens. The method creates a dict called userJSON,
+      which will store all of the analysis information. Initially it contains a
+      status element, which is used to record any errors that occurr during
+      analysis. The rest of the method is surrounded in a try/except block which
+      sets the errors if they occur.
+      The method gets some basic user information, such as screen names and follower
+      counts. Then it retrieves all the tweets it can from the user, and it records
+      the number of tweets it actually received.
+      It then sets up some empty variables that will be used in the main loop.
+      Things like the most favorited count, most retweeted count, word use
+      frequencies, and used source frequencies are kept.
+      The method then iterates over the list of tweets.
+      Each tweet is split into single words, and the frequency count is updated.
+      Each word is set to lowercase before being counted, so capitalization does
+      not matter. The method also checks that the tweet is not a retweet before
+      incrementing any word frequencies.
+      If the tweet is not a retweet, the number of retweets is checked against the
+      current value of mostRetweetedOriginal, and sets it if it is greater.
+      The retweet and favorite counts are then checked against mostRetweeted and
+      mostFavorited respectively, and sets them if either are greater.
+      The method then checks the hour that the tweet was created, and updates the
+      time frequency dict accordingly.
+      Finally, the method updates the source dict and total link count.
+      When each tweet has been visited, the method uses the recorded data to update
+      the userJSON dict. Each attribute is either simply recorded, calculated as a
+      percentage, or retrieved from a sorted list, with the exception of the
+      happiness value, which uses the findHappiness() method. When everything has
+      been stored in the userJSON dict, it is returned. 
 
    def analyzeUser(id):
-      A wrapper for _analyzeUser(). This method returns a JSON object representing
-      all of the data returned by _analyzeUser().
+      A wrapper for _analyzeUser(). This method returns a JSON encoded object
+      representing all of the data returned by _analyzeUser().
 
    def analyzeUsers(usersFile):
-      Returns a JSON object containing the output of _analyzeUser() for all users
-      in the specified usersFile.
+      Returns a JSON encoded object containing the output of _analyzeUser() for
+      all users in the specified usersFile.
 
    def showHelp():
       Displays how to use Tweelings.
