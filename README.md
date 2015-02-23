@@ -40,7 +40,6 @@ The Tweepy docs can be found at http://tweepy.readthedocs.org/en/v3.2.0/
 
 I started out writing this as a simple script, but I realized that I had a lot of data to keep track of, so I decided to make a class called Tweelings. The Tweelings class will be described below.
 
-```
 class Tweelings:
 
    def __init__():
@@ -114,11 +113,11 @@ class Tweelings:
    def _byteify(input):
       A utility function that recursively encodes an input object to unicode,
       specifically UTF-8.
-      Credit goes to StackOverflow user Mark Amery. The code can be found at http://stackoverflow.com/questions/956867/how-to-get-string-objects-instead-of-unicode-ones-from-json-in-python#13105359
+      Credit goes to StackOverflow user Mark Amery. The code can be found at
+      http://stackoverflow.com/questions/956867/how-to-get-string-objects-instead-of-unicode-ones-from-json-in-python#13105359
 
    def main():
       Handles command line arguments and calls the correct functions. See USAGE.
-   ```
 
 ###CITATIONS
    1. Dodds PS, Danforth CM (2009) Measuring the happiness of large-scale written expression: Songs, blogs, and presidents. Journal of Happiness Studies.
