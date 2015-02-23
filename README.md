@@ -76,13 +76,13 @@ class Tweelings:
       which takes an argument max_id, which is just (oldest - 1). This occurs until
       the user_timeline() method returns the empty list. Credit for this algorithm
       goes to github user yanofsky.
-      The script can be found at ```https://gist.github.com/yanofsky/5436496```
+      The script can be found at https://gist.github.com/yanofsky/5436496
 
    def setHappyWords(happywordsFile):
       Reads in a list of words and their happiness weights from the specified file.
       The default list of happywords and their weights can be found in defaults/happywords_default.json.
-      This default file is a compact version of a file that can be found at```
-      http://hedonometer.org/api/v1/words/?format=json```
+      This default file is a compact version of a file that can be found at
+      http://hedonometer.org/api/v1/words/?format=json
 
    def findHappiness(wordFreqs):
       Uses a dict of words and their respective frequencies to determine a user's
@@ -112,8 +112,8 @@ class Tweelings:
 
    def _byteify(input):
       A utility function that recursively encodes an input object to unicode,
-      specifically UTF-8.
-      Credit goes to StackOverflow user Mark Amery. The code can be found at``` http://stackoverflow.com/questions/956867/how-to-get-string-objects-instead-of-unicode-ones-from-json-in-python#13105359```
+      specifically UTF-8. Credit goes to StackOverflow user Mark Amery.
+      The code can be found at http://stackoverflow.com/questions/956867/how-to-get-string-objects-instead-of-unicode-ones-from-json-in-python#13105359
 
    def main():
       Handles command line arguments and calls the correct functions. See USAGE.
