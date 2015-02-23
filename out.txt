@@ -1,0 +1,320 @@
+{
+    "@BarackObama": {
+        "analysis": {
+            "happiness": 0.1986065757459361, 
+            "linksRatio": 0.6066438994101211, 
+            "mostActiveTime": {
+                "percentage": 0.665010866190624, 
+                "time": "evening"
+            }, 
+            "mostFavorited": {
+                "favorite_count": 61969, 
+                "id": 499002971573981184, 
+                "text": "\"Robin Williams was an airman, a doctor, a genie, a nanny ... and everything in between. But he was one of a kind.\" —President Obama"
+            }, 
+            "mostRetweeted": {
+                "id": 499002971573981184, 
+                "retweet_count": 62708, 
+                "text": "\"Robin Williams was an airman, a doctor, a genie, a nanny ... and everything in between. But he was one of a kind.\" —President Obama"
+            }, 
+            "mostRetweetedOriginal": {
+                "id": 499002971573981184, 
+                "retweet_count": 62708, 
+                "text": "\"Robin Williams was an airman, a doctor, a genie, a nanny ... and everything in between. But he was one of a kind.\" —President Obama"
+            }, 
+            "mostUsedWords": [
+                "obama", 
+                "—president", 
+                "president", 
+                "health", 
+                "care", 
+                "time", 
+                "make", 
+                "americans", 
+                "#raisethewage", 
+                "congress"
+            ], 
+            "preferredApp": {
+                "percentage": 0.997826761875194, 
+                "source": "Twitter Web Client"
+            }, 
+            "tweets_retrieved": 3221
+        }, 
+        "status": {
+            "error": false, 
+            "message": ""
+        }, 
+        "user": {
+            "followers": 55351031, 
+            "friends": 644549, 
+            "id": 813286, 
+            "name": "Barack Obama", 
+            "screen_name": "BarackObama"
+        }
+    }, 
+    "@LilTunechi": {
+        "analysis": {
+            "happiness": 0.19183333333333463, 
+            "linksRatio": 0.05223251895534962, 
+            "mostActiveTime": {
+                "percentage": 0.33782645324347094, 
+                "time": "evening"
+            }, 
+            "mostFavorited": {
+                "favorite_count": 74403, 
+                "id": 312737210044669953, 
+                "text": "I'm good everybody. Thx for the prayers and love."
+            }, 
+            "mostRetweeted": {
+                "id": 312737210044669953, 
+                "retweet_count": 173002, 
+                "text": "I'm good everybody. Thx for the prayers and love."
+            }, 
+            "mostRetweetedOriginal": {
+                "id": 312737210044669953, 
+                "retweet_count": 173002, 
+                "text": "I'm good everybody. Thx for the prayers and love."
+            }, 
+            "mostUsedWords": [
+                "da", 
+                "just", 
+                "luv", 
+                "love", 
+                "2", 
+                "happy", 
+                "ya", 
+                "props", 
+                "lil", 
+                "dat"
+            ], 
+            "preferredApp": {
+                "percentage": 0.818871103622578, 
+                "source": "Twitter for iPhone"
+            }, 
+            "tweets_retrieved": 1187
+        }, 
+        "status": {
+            "error": false, 
+            "message": ""
+        }, 
+        "user": {
+            "followers": 21459952, 
+            "friends": 43, 
+            "id": 116362700, 
+            "name": "Lil Wayne WEEZY F", 
+            "screen_name": "LilTunechi"
+        }
+    }, 
+    "@MileyCyrus": {
+        "analysis": {
+            "happiness": 0.17088340248962752, 
+            "linksRatio": 0.3137747097583935, 
+            "mostActiveTime": {
+                "percentage": 0.43520552243489175, 
+                "time": "evening"
+            }, 
+            "mostFavorited": {
+                "favorite_count": 166213, 
+                "id": 496422332878290945, 
+                "text": "@NiallOfficial fuckkkk yasssss"
+            }, 
+            "mostRetweeted": {
+                "id": 382297323251838977, 
+                "retweet_count": 145479, 
+                "text": "RT @ladygaga: DO NOT LEAVE YOUR CHILDREN WITH LADY GAGA http://t.co/teuY8ldb9q"
+            }, 
+            "mostRetweetedOriginal": {
+                "id": 496422332878290945, 
+                "retweet_count": 129487, 
+                "text": "@NiallOfficial fuckkkk yasssss"
+            }, 
+            "mostUsedWords": [
+                "❤️", 
+                "just", 
+                "love", 
+                "#bangerztour", 
+                "#bangerz", 
+                "@mikewillmadeit", 
+                "can't", 
+                "thank", 
+                "don't", 
+                ":)"
+            ], 
+            "preferredApp": {
+                "percentage": 0.7728271101349231, 
+                "source": "Twitter for iPhone"
+            }, 
+            "tweets_retrieved": 3187
+        }, 
+        "status": {
+            "error": false, 
+            "message": ""
+        }, 
+        "user": {
+            "followers": 19242131, 
+            "friends": 379, 
+            "id": 268414482, 
+            "name": "Miley Ray Cyrus", 
+            "screen_name": "MileyCyrus"
+        }
+    }, 
+    "@PutinRF": {
+        "analysis": {
+            "happiness": 0.06941176470588228, 
+            "linksRatio": 0.9369973190348525, 
+            "mostActiveTime": {
+                "percentage": 0.3760053619302949, 
+                "time": "afternoon"
+            }, 
+            "mostFavorited": {
+                "favorite_count": 1170, 
+                "id": 550442638584082432, 
+                "text": "Новогоднее обращение к гражданам России\n\nhttp://t.co/40s079ydr0 http://t.co/7HF3bOKgVw"
+            }, 
+            "mostRetweeted": {
+                "id": 543451165753876480, 
+                "retweet_count": 1269, 
+                "text": "RT @narendramodi: Рад приветствовать Президента Путина в Индию!  Жду продуктивного визита, который поднимет наши связи на качественно новый…"
+            }, 
+            "mostRetweetedOriginal": {
+                "id": 550442638584082432, 
+                "retweet_count": 807, 
+                "text": "Новогоднее обращение к гражданам России\n\nhttp://t.co/40s079ydr0 http://t.co/7HF3bOKgVw"
+            }, 
+            "mostUsedWords": [
+                "с", 
+                "в", 
+                "встреча", 
+                "и", 
+                "путин", 
+                "владимир", 
+                "по", 
+                "на", 
+                "о", 
+                "президентом"
+            ], 
+            "preferredApp": {
+                "percentage": 0.7754691689008043, 
+                "source": "Twitter for iPad"
+            }, 
+            "tweets_retrieved": 1492
+        }, 
+        "status": {
+            "error": false, 
+            "message": ""
+        }, 
+        "user": {
+            "followers": 1025737, 
+            "friends": 1, 
+            "id": 438133358, 
+            "name": "Владимир Путин", 
+            "screen_name": "PutinRF"
+        }
+    }, 
+    "@VanessaHudgens": {
+        "analysis": {
+            "happiness": 0.27093126558603275, 
+            "linksRatio": 0.7265758091993185, 
+            "mostActiveTime": {
+                "percentage": 0.7657580919931857, 
+                "time": "evening"
+            }, 
+            "mostFavorited": {
+                "favorite_count": 24637, 
+                "id": 445651441319804928, 
+                "text": "Happy Monday lovers #mycalvins http://t.co/BSPHWiaJdv"
+            }, 
+            "mostRetweeted": {
+                "id": 449245017576464384, 
+                "retweet_count": 14263, 
+                "text": "Spring break forever bitches. #reunion @AshBenzo @selenagomez http://t.co/NecnKzqm9N"
+            }, 
+            "mostRetweetedOriginal": {
+                "id": 449245017576464384, 
+                "retweet_count": 14263, 
+                "text": "Spring break forever bitches. #reunion @AshBenzo @selenagomez http://t.co/NecnKzqm9N"
+            }, 
+            "mostUsedWords": [
+                "love", 
+                "happy", 
+                "asked:", 
+                "@vanessahudgens", 
+                "just", 
+                ";)", 
+                "&gt;&gt;", 
+                "@gigionbroadway", 
+                "thanks", 
+                "lol"
+            ], 
+            "preferredApp": {
+                "percentage": 0.45315161839863716, 
+                "source": "Twitter Web Client"
+            }, 
+            "tweets_retrieved": 1174
+        }, 
+        "status": {
+            "error": false, 
+            "message": ""
+        }, 
+        "user": {
+            "followers": 4995550, 
+            "friends": 132, 
+            "id": 274119641, 
+            "name": "Vanessa Hudgens", 
+            "screen_name": "VanessaHudgens"
+        }
+    }, 
+    "@deadmau5": {
+        "analysis": {
+            "happiness": 0.13683402366864117, 
+            "linksRatio": 0.13850415512465375, 
+            "mostActiveTime": {
+                "percentage": 0.5358571868267159, 
+                "time": "evening"
+            }, 
+            "mostFavorited": {
+                "favorite_count": 5551, 
+                "id": 525609721571844096, 
+                "text": ".@ParisHilton if i wanted attention, id put out a sex tape, fuck a dentist, then charge a million for root canals. For now, imma just be me."
+            }, 
+            "mostRetweeted": {
+                "id": 560500142361829378, 
+                "retweet_count": 5362, 
+                "text": "Today every tweet using #BellLetsTalk donates 5¢ to Canadian #MentalHealth initiatives. Please share to help raise awareness!"
+            }, 
+            "mostRetweetedOriginal": {
+                "id": 560500142361829378, 
+                "retweet_count": 5362, 
+                "text": "Today every tweet using #BellLetsTalk donates 5¢ to Canadian #MentalHealth initiatives. Please share to help raise awareness!"
+            }, 
+            "mostUsedWords": [
+                "just", 
+                "im", 
+                ":)", 
+                ":d", 
+                "fuckin", 
+                "like", 
+                "dont", 
+                "fuck", 
+                "know", 
+                "got"
+            ], 
+            "preferredApp": {
+                "percentage": 0.8008618036318867, 
+                "source": "TweetDeck"
+            }, 
+            "tweets_retrieved": 3249
+        }, 
+        "status": {
+            "error": false, 
+            "message": ""
+        }, 
+        "user": {
+            "followers": 3094906, 
+            "friends": 252, 
+            "id": 22412376, 
+            "name": "deadmau5", 
+            "screen_name": "deadmau5"
+        }
+    }
+}
