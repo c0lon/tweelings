@@ -40,7 +40,7 @@ The Tweepy docs can be found at http://tweepy.readthedocs.org/en/v3.2.0/
 
 I started out writing this as a simple script, but I realized that I had a lot of data to keep track of, so I decided to make a class called Tweelings. The Tweelings class will be described below.
 
-class Tweelings:
+> class Tweelings:
 
    def __init__():
       When the object is first created, it logs in using the keys I created. It also
