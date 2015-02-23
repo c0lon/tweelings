@@ -98,11 +98,11 @@ class Tweelings:
 
    def _analyzeUser(id):
       This is where the magic happens.
-      The method creates a dict called userJSON,
-      which will store all of the analysis information. Initially it contains a
-      status element, which is used to record any errors that occurr during
-      analysis. The rest of the method is surrounded in a try/except block which
-      sets the errors if they occur.
+      The method creates a dict called userJSON, which will store all of the
+      analysis information. Initially it contains a status element, which is
+      used to record any errors that occurr during analysis. The rest of the
+      method is surrounded in a try/except block which sets the errors if they
+      occur.
       The method gets some basic user information, such as screen names and follower
       counts. Then it retrieves all the tweets it can from the user, and it records
       the number of tweets it actually received.
