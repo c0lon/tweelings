@@ -40,9 +40,10 @@ The Tweepy docs can be found at http://tweepy.readthedocs.org/en/v3.2.0/
 
 I started out writing this as a simple script, but I realized that I had a lot of data to keep track of, so I decided to make a class called Tweelings. The Tweelings class will be described below.
 
-`class Tweelings:`
+```
+class Tweelings:
 
-   `def __init__():`
+   def __init__():
       When the object is first created, it logs in using the keys I created. It also
       initalizes some empty lists, users and userAnalyses, which will be used later.
       It then defines the default stop words and happy words, which can be found in
@@ -118,6 +119,7 @@ I started out writing this as a simple script, but I realized that I had a lot o
 
    def main():
       Handles command line arguments and calls the correct functions. See USAGE.
+```
 
 ###CITATIONS
    1. Dodds PS, Danforth CM (2009) Measuring the happiness of large-scale written expression: Songs, blogs, and presidents. Journal of Happiness Studies.
