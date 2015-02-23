@@ -16,7 +16,14 @@ class Tweelings
    `def __init__()`
       > When the object is first created, it logs in using the keys I created. It also initalizes some empty lists, users and userAnalyses, which will be used later. It then defines the default stop words and happy words, which can be found in the defaults directory. Finally, it sets the output file to None, which can be changed via a command line argument. 
 
+<<<<<<< HEAD
    def login()
+=======
+      > When the object is first created, it logs in using the keys I created. It also initalizes some empty lists, users and userAnalyses, which will be used later. It then defines the default stop words and happy words, which can be found in the defaults directory. Finally, it sets the output file to None, which can be changed via a command line argument. 
+
+   def loing()
+
+>>>>>>> 577136e5f5b5c454198941efeccfd76293235ec6
       Logs into Twitter using my keys and returns the tweepy.api object.
 
    def setStopWords(stopWordsFile)
