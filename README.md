@@ -16,34 +16,30 @@ class Tweelings
    `def __init__()`
       > When the object is first created, it logs in using the keys I created. It also initalizes some empty lists, users and userAnalyses, which will be used later. It then defines the default stop words and happy words, which can be found in the defaults directory. Finally, it sets the output file to None, which can be changed via a command line argument. 
 
-<<<<<<< HEAD
-   def login()
-=======
+   `def login()`
       > When the object is first created, it logs in using the keys I created. It also initalizes some empty lists, users and userAnalyses, which will be used later. It then defines the default stop words and happy words, which can be found in the defaults directory. Finally, it sets the output file to None, which can be changed via a command line argument. 
 
-   def loing()
-
->>>>>>> 577136e5f5b5c454198941efeccfd76293235ec6
+   `def loing()`
       Logs into Twitter using my keys and returns the tweepy.api object.
 
-   def setStopWords(stopWordsFile)
+   `def setStopWords(stopWordsFile)`
       Sets the stopwords to be used when analyzing tweets. Stop words are words that you woudln't want to use in analysis because they don't really contribute much to the overall meaning of the text, such as "the" or "I". The default list of stopwords can be found in defaults/stopwords_default.txt
 
-   def setOutputFile(outputFile)
+   `def setOutputFile(outputFile)`
       Sets the file where the output will be written to. This can be set using the -o flag from the command line.
 
-   def getUsers(usersFile)
+   `def getUsers(usersFile)`
       Gets and returns a list of usernames from the specified file. This is called using the -U flag from the command line.
 
-   def getTweets(id, max)
+   `def getTweets(id, max)`
       Gets as many tweets as possible from a user specified by id. The Twitter API only allows 200 tweets to be retrieved at a time, so I found an algorithm that retrieves all tweets in increments of 200. The algorithm works by getting the first 200 tweets and remembering the id of the oldest one in a variable called oldest. Tweets are retrieved using the
       tweepy.api.user_timeline() method, which takes an argument max_id, which is just
       (oldest - 1). This occurs until the user_timeline() method returns the empty list.
       Credit for this algorithm goes to github user yanofsky.
       The script can be found at https://gist.github.com/yanofsky/5436496
 
-   def setHappyWords(happywordsFile)   
+   `def setHappyWords(happywordsFile)`
       Reads in a list of words and their happiness weights from the specified file. The default list of happywords and their weights can be found in defaults/happywords_default.json. This default file is a compact version of a file that can be found at
       http://hedonometer.org/api/v1/words/?format=json
 
-   def findHappiness(tweet)
+   `def findHappiness(tweet)`
