@@ -80,8 +80,10 @@ class Tweelings:
 
    def setHappyWords(happywordsFile):
       Reads in a list of words and their happiness weights from the specified file.
-      The default list of happywords and their weights can be found in defaults/happywords_default.json. This default file is a compact version of a
-      file that can be found at http://hedonometer.org/api/v1/words/?format=json
+      The default list of happywords and their weights can be found in
+      defaults/happywords_default.json.
+      This default file is a compact version of a file that can be found at
+      http://hedonometer.org/api/v1/words/?format=json
 
    def findHappiness(wordFreqs):
       Uses a dict of words and their respective frequencies to determine a user's
